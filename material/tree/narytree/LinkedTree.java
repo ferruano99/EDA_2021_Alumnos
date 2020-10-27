@@ -255,8 +255,37 @@ public class LinkedTree<E> implements NAryTree<E> {
 
     @Override
     public void moveSubtree(Position<E> pOrig, Position<E> pDest) throws RuntimeException {
-        //TODO: Practica 2 Ejercicio 1
+        //TODO: Practica 2 Ejercicio 1 tus muertos
+        if(pOrig == pDest){
+            throw new RuntimeException("Both positions are the same");
+        }
+        TreeNode<E> nodeOrig = checkPosition(pOrig);
+        TreeNode<E> nodeDest = checkPosition(pDest);
 
+        if(pOrig == root){
+            throw new RuntimeException("");
+        }
+        if(isAncestor(nodeOrig,nodeDest)){
+            throw new RuntimeException("");
+        }
+
+        TreeNode<E> aux = nodeOrig.getParent();
+        nodeOrig.setParent(nodeDest);
+        nodeDest.getChildren().add(nodeOrig);
+        aux.getChildren().remove(nodeOrig);
+    }
+    //Comprueba q n1 es ancestr de n2
+    private boolean isAncestor(TreeNode<E> n1,TreeNode<E> n2){
+        boolean toReturn = false;
+        TreeNode<E> aux = n2;
+
+        while((aux != root) && !(toReturn)){
+            aux = aux.getParent();
+            if(aux == n1){
+                toReturn = true;
+            }
+        }
+        return toReturn;
     }
 
 }

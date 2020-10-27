@@ -168,7 +168,7 @@ public class DoubleLinkedList<E> implements List<E> {
         return next;
     }
 
-    
+
     @Override
     public Position<E> addBefore(Position<E> p, E element) throws RuntimeException {
         DNode<E> node = checkPosition(p);
@@ -186,7 +186,7 @@ public class DoubleLinkedList<E> implements List<E> {
         return newNode;
     }
 
-    
+
     @Override
     public Position<E> addAfter(Position<E> p, E element) throws RuntimeException {
         DNode<E> node = checkPosition(p);
@@ -236,7 +236,7 @@ public class DoubleLinkedList<E> implements List<E> {
         return newNode;
     }
 
-    
+
     @Override
     public E remove(Position<E> p) throws RuntimeException {
         DNode<E> node = checkPosition(p);
@@ -258,7 +258,7 @@ public class DoubleLinkedList<E> implements List<E> {
         return elem;
     }
 
-    
+
     @Override
     public E set(Position<E> p, E element) throws RuntimeException {
         DNode<E> node = checkPosition(p);
